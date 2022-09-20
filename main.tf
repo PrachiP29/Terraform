@@ -120,11 +120,11 @@ resource "local_file" "TF-key" {
 # }
 
  # s3 backend configuration - terraform.tfstate file
-terraform {
-  backend "s3" {
-    bucket = "prachi-s3-bucket"
-    key    = "terraform.tfstate"  # -> directory inside s3 bucket
-    region = "us-east-1"
-  }
-}
+#terraform {
+#  backend "s3" {
+#    bucket = "prachi-s3-bucket"
+#    key    = "terraform.tfstate"  # -> directory inside s3 bucket
+#    region = "us-east-1"
+ # }
+#}
 
