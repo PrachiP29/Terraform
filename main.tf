@@ -56,7 +56,7 @@ resource "aws_volume_attachment" "ebs_att" {
 #securitygroup using Terraform
 
  resource "aws_security_group" "T_Sec_Grp" {
-  name        = "security group using Terraform"
+  name        = "security group"
   description = "security group using Terraform"
   vpc_id      = "vpc-09e26a16cbd13b4cb" //SGs are vpc bounded
 
