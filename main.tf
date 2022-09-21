@@ -31,7 +31,7 @@ resource "aws_instance" "demo" { //resource <resource type> <resource local name
  ami = data.aws_ami.amazonLinux.id
  instance_type = var.instance_type
  availability_zone = "us-east-1a" // var
- security_groups = [aws_security_group.TF_Sec_Grp.name]
+ security_groups = [aws_security_group.T_Sec_Grp.name]
  # key_name = "demo_ec2"  //created using the console.. CAN BE DONE USING TF AS WELL
 
  tags = {
@@ -55,7 +55,7 @@ resource "aws_volume_attachment" "ebs_att" {
 
 #securitygroup using Terraform
 
- resource "aws_security_group" "TF_Sec_Grp" {
+ resource "aws_security_group" "T_Sec_Grp" {
   name        = "security group using Terraform"
   description = "security group using Terraform"
   vpc_id      = "vpc-09e26a16cbd13b4cb" //SGs are vpc bounded
@@ -83,8 +83,8 @@ resource "aws_volume_attachment" "ebs_att" {
  }
 
 # key pair 
- resource "aws_key_pair" "TF_key" {
-  key_name   = "TF_key"
+ resource "aws_key_pair" "T_key" {
+  key_name   = "T_key"
   public_key = tls_private_key.rsa.public_key_openssh
 }
 #--> private key to be stored locally, to ssh on local machine
@@ -93,7 +93,7 @@ resource "tls_private_key" "rsa" {
   rsa_bits  = 4096
 }
 
-resource "local_file" "TF-key" {
+resource "local_file" "T-key" {
     content  = tls_private_key.rsa.private_key_pem
     filename = "tfkey"
 }
