@@ -1,3 +1,4 @@
+#working for LCR, bi-directional CRR for S3
 provider "aws" {
   region = "eu-west-1"
 }
