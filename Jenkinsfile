@@ -8,6 +8,7 @@ pipeline {
         stage ("checkout from GIT") {
             steps {
                 git branch: 'main', credentialsId: 'git', url: 'https://github.com/PrachiP29/Terraform'
+                sh 'git checkout v1.66.0'
             }
         }
         stage ("terraform ls") {
